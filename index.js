@@ -2,15 +2,15 @@ const powerbutton = document.getElementById('powerbutton');
 const brightnessSlider = document.getElementById('brightnessSlider');
 const colorbutton = document.getElementById('colorbutton');
 const color = document.getElementById('color');
-var middleman = "https://gaminggolems30-246b05d4320xyjk4.socketxp.com"
-var siteinfo = "https://gaminggolems30-mrtc4pqh53yfn5qz.socketxp.com"
+const middleman = "https://lightcontrol-middleman.herokuapp.com"
+const siteinfo = "https://lightcontrol-siteinfo.herokuapp.com"
 var brightness = 0;
 
 // Get status every second
 
 const interval = setInterval(function() {
     getStatusNew();
-}, 10000);
+}, 5000);
 
 // Interprets the data from the server and updates the UI
 function getStatusNew() {
