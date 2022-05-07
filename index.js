@@ -2,6 +2,8 @@ const powerbutton = document.getElementById('powerbutton');
 const brightnessSlider = document.getElementById('brightnessSlider');
 const colorbutton = document.getElementById('colorbutton');
 const color = document.getElementById('color');
+const middleman = "https://lightcontrol-middleman.herokuapp.com"
+const siteinfo = "https://lightcontrol-siteinfo.herokuapp.com"
 var brightness = 0;
 
 // Get status every second
@@ -12,7 +14,7 @@ const interval = setInterval(function() {
 
 // Interprets the data from the server and updates the UI
 function getStatusNew() {
-    fetch("http://127.0.0.1:5000/statusnew")
+    fetch(middleman + "/statusnew")
     .then(response => response.json())
     .then(data => {
         if (data.power === "on") {
@@ -38,7 +40,7 @@ function getStatusNew() {
         // Updates the color button's background color to the current color of the light.
         colorbutton.style.backgroundColor = data.color
     });
-    fetch("http://127.0.0.1:5001/getAllCooldowns")
+    fetch(siteinfo + "/getAllCooldowns")
     // Gets the current cooldowns from the server
     .then(response => response.json())
     .then(data => {
@@ -84,7 +86,7 @@ function getStatusNew() {
 // Event listeners for each input method
 
 powerbutton.onclick = () => {
-    fetch("http://127.0.0.1:5000/powertoggle")
+    fetch(middleman + "/powertoggle")
     .then(response => response.json())
     .then(data => {
         console.log(data)
@@ -93,7 +95,7 @@ powerbutton.onclick = () => {
 
 brightnessSlider.onchange = function() {
     brightness = this.value;
-    fetch("http://127.0.0.1:5000/brightness/" + brightness)
+    fetch(middleman + "/brightness/" + brightness)
     .then(response => response.json())
     .then(data => {
         console.log(data)
@@ -103,7 +105,7 @@ brightnessSlider.onchange = function() {
 colorbutton.onclick = () => {
     if (color.value !== "#000000") {
         colorvalue = color.value.substring(1);
-        fetch("http://127.0.0.1:5000/color/" + colorvalue)
+        fetch(middleman + "/color/" + colorvalue)
         .then(response => response.json())
         .then(data => {
             console.log(data)
