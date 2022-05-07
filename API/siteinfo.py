@@ -65,4 +65,4 @@ def getAllCooldowns():
 
 
 
-app.run(port=5001, debug=True)
+app.run()

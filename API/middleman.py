@@ -5,7 +5,7 @@ import json
 from flask_cors import CORS, cross_origin
 app = Flask(__name__)
 cors = CORS(app)
-token = "c00382a333bc0e8410aee7a7ae99d569aaed8be0a45680d160e3d1eba5a38d73"
+token = "LIFX API TOKEN"
 powerStatus = "unknown"
 brightnessStatus = "unknown"
 colorStatus = "unknown"
@@ -69,4 +69,4 @@ def setcolor(hexcode):
     requests.get("http://127.0.0.1:5001/colorChangeCooldown")
     return(response.json())
 
-app.run(debug=True)
+app.run()
