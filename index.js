@@ -10,7 +10,7 @@ var brightness = 0;
 
 const interval = setInterval(function() {
     getStatusNew();
-}, 1000);
+}, 10000);
 
 // Interprets the data from the server and updates the UI
 function getStatusNew() {
