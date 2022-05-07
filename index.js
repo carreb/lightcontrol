@@ -2,8 +2,8 @@ const powerbutton = document.getElementById('powerbutton');
 const brightnessSlider = document.getElementById('brightnessSlider');
 const colorbutton = document.getElementById('colorbutton');
 const color = document.getElementById('color');
-const middleman = "https://lightcontrol-middleman.herokuapp.com"
-const siteinfo = "https://lightcontrol-siteinfo.herokuapp.com"
+const middleman = "https://gaminggolems30-246b05d4320xyjk4.socketxp.com"
+const siteinfo = "https://gaminggolems30-mrtc4pqh53yfn5qz.socketxp.com"
 var brightness = 0;
 
 // Get status every second
