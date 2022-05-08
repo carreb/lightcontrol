@@ -2,18 +2,19 @@ const powerbutton = document.getElementById('powerbutton');
 const brightnessSlider = document.getElementById('brightnessSlider');
 const colorbutton = document.getElementById('colorbutton');
 const color = document.getElementById('color');
-const middleman = "https://lightcontrol-middleman.herokuapp.com"
-const siteinfo = "https://lightcontrol-siteinfo.herokuapp.com"
+const middleman = "https://sour-nights-enjoy-99-252-144-103.loca.lt"
+const siteinfo = "https://dull-cars-check-99-252-144-103.loca.lt"
 var brightness = 0;
 
 // Get status every second
 
 const interval = setInterval(function() {
-    getStatusNew();
-}, 5000);
+    getStatus();
+    getCooldowns();
+}, 1000);
 
 // Interprets the data from the server and updates the UI
-function getStatusNew() {
+function getStatus() {
     fetch(middleman + "/statusnew")
     .then(response => response.json())
     .then(data => {
@@ -40,6 +41,9 @@ function getStatusNew() {
         // Updates the color button's background color to the current color of the light.
         colorbutton.style.backgroundColor = data.color
     });
+}
+
+function getCooldowns() {
     fetch(siteinfo + "/getAllCooldowns")
     // Gets the current cooldowns from the server
     .then(response => response.json())
@@ -120,4 +124,4 @@ color.onchange = function() {
 }
 
 // Start
-getStatusNew();
+getStatus();
