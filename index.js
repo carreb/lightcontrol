@@ -9,19 +9,6 @@ powerbutton.disabled = true;
 brightnessSlider.disabled = true;
 colorbutton.disabled = true;
 
-function testConnection() {
-    fetch(middleman + "/statusnew")
-    .then(response => response.json())
-    if (response.status === 200) {
-        document.getElementById('connectToMiddleman').innerHTML = "Connected to middleman";
-    }
-    fetch(siteinfo + "/getAllCooldowns")
-    .then(response => response.json())
-    if (response.status === 200) {
-        document.getElementById('connectToSiteInfo').innerHTML = "Connected to siteinfo";
-    }
-}
-
 // Get status every second
 
 const interval = setInterval(function() {
@@ -142,4 +129,3 @@ color.onchange = function() {
 
 // Start
 getStatus();
-testConnection();
