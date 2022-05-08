@@ -5,6 +5,10 @@ const color = document.getElementById('color');
 const middleman = "https://sour-nights-enjoy-99-252-144-103.loca.lt"
 const siteinfo = "https://dull-cars-check-99-252-144-103.loca.lt"
 var brightness = 0;
+powerbutton.disabled = true;
+brightnessSlider.disabled = true;
+colorbutton.disabled = true;
+
 
 // Get status every second
 
